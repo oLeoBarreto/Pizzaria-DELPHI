@@ -1,0 +1,16 @@
+inherited FormCadastroPizzas: TFormCadastroPizzas
+  Caption = 'FormCadastroPizzas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    ExplicitTop = 0
+    inherited Label1: TLabel
+      Width = 200
+      Caption = 'Cadastro Pizzas'
+      ExplicitWidth = 200
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryPizzas
+  end
+end

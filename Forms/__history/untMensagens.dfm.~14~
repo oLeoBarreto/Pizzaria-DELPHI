@@ -1,0 +1,61 @@
+inherited FormMensagens: TFormMensagens
+  Caption = 'FormMensagens'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    Height = 472
+    Align = alClient
+  end
+  inherited Footer: TPanel
+    Visible = False
+  end
+  inherited Content: TPanel
+    Left = 56
+    Top = 56
+    Width = 650
+    Height = 360
+    Align = alNone
+    Color = clBlack
+    ExplicitLeft = 56
+    ExplicitTop = 56
+    ExplicitWidth = 650
+    ExplicitHeight = 360
+    object LblTitulo: TLabel
+      Left = 56
+      Top = 54
+      Width = 76
+      Height = 37
+      Caption = 'Titulo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -27
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 32
+      Top = 109
+      Width = 585
+      Height = 100
+      Caption = 
+        'Mensagem Mensagem Mensagem Mensagem Mensagem Mensagem Mensagem M' +
+        'ensagem Mensagem Mensagem Mensagem Mensagem Mensagem Mensagem Me' +
+        'nsagem Mensagem Mensagem Mensagem Mensagem Mensagem'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      WordWrap = True
+    end
+    object Bevel1: TBevel
+      Left = 32
+      Top = 97
+      Width = 585
+      Height = 17
+      Shape = bsTopLine
+    end
+  end
+end

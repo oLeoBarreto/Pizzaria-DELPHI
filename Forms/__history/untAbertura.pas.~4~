@@ -1,0 +1,46 @@
+unit untAbertura;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBase, Vcl.ExtCtrls, Vcl.ComCtrls,
+  Vcl.StdCtrls;
+
+type
+  TFormBase1 = class(TFormBase)
+    Label1: TLabel;
+    Label2: TLabel;
+    Timer1: TTimer;
+    ProgressBar1: TProgressBar;
+    procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormBase1: TFormBase1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormBase1.FormShow(Sender: TObject);
+begin
+  Timer1.Enabled := True;
+end;
+
+procedure TFormBase1.Timer1Timer(Sender: TObject);
+begin
+  ProgressBar1.Position := ProgressBar1.Position + 5;
+  if ProgressBar1.Position = 100 then
+  begin
+    Timer1.Enabled := False;
+    Self.Close;
+  end;
+end;
+
+end.

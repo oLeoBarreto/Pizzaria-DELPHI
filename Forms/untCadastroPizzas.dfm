@@ -1,0 +1,83 @@
+inherited FormCadastroPizzas: TFormCadastroPizzas
+  Caption = 'FormCadastroPizzas'
+  FormStyle = fsNormal
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    ExplicitTop = 0
+    inherited Label1: TLabel
+      Width = 200
+      Caption = 'Cadastro Pizzas'
+      ExplicitWidth = 200
+    end
+    inherited Button1: TButton
+      Anchors = [akTop, akRight]
+    end
+    inherited Button2: TButton
+      Anchors = [akTop, akRight]
+    end
+    inherited Button3: TButton
+      Anchors = [akTop, akRight]
+    end
+  end
+  inherited Content: TPanel
+    object Label2: TLabel
+      Left = 32
+      Top = 32
+      Width = 30
+      Height = 13
+      Caption = 'Nome'
+      FocusControl = DBEdit1
+    end
+    object Label3: TLabel
+      Left = 32
+      Top = 80
+      Width = 65
+      Height = 13
+      Caption = 'Ingredientes'
+      FocusControl = DBEdit2
+    end
+    object Label4: TLabel
+      Left = 32
+      Top = 128
+      Width = 28
+      Height = 13
+      Caption = 'Preco'
+      FocusControl = DBEdit3
+    end
+    object DBEdit1: TDBEdit
+      Left = 32
+      Top = 48
+      Width = 700
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clWhite
+      DataField = 'Nome'
+      DataSource = dts
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 32
+      Top = 99
+      Width = 700
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      DataField = 'Ingredientes'
+      DataSource = dts
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 32
+      Top = 144
+      Width = 134
+      Height = 21
+      DataField = 'Preco'
+      DataSource = dts
+      TabOrder = 2
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryPizzas
+  end
+end

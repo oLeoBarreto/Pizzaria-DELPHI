@@ -1,0 +1,115 @@
+inherited FormMensagens: TFormMensagens
+  AlphaBlend = True
+  AlphaBlendValue = 245
+  Caption = 'Mensagens'
+  ClientHeight = 350
+  ClientWidth = 850
+  Position = poDefault
+  WindowState = wsMaximized
+  OnShow = FormShow
+  ExplicitWidth = 850
+  ExplicitHeight = 350
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    Width = 850
+    Height = 350
+    Align = alClient
+    ExplicitWidth = 850
+    ExplicitHeight = 350
+  end
+  inherited Content: TPanel
+    Left = 25
+    Top = 27
+    Width = 800
+    Height = 300
+    Align = alNone
+    Anchors = []
+    Color = clBlack
+    ExplicitLeft = 25
+    ExplicitTop = 27
+    ExplicitWidth = 800
+    ExplicitHeight = 300
+    object LblTitulo: TLabel
+      Left = 40
+      Top = 56
+      Width = 68
+      Height = 37
+      Caption = 'Titulo'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -27
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Bevel1: TBevel
+      Left = 40
+      Top = 95
+      Width = 713
+      Height = 10
+      Shape = bsTopLine
+    end
+    object LblTexto: TLabel
+      Left = 40
+      Top = 108
+      Width = 648
+      Height = 63
+      Caption = 
+        'Mensagem Mensagem Mensagem Mensagem Mensagem Mensagem Mensagem M' +
+        'ensagem Mensagem Mensagem Mensagem Mensagem Mensagem Mensagem Me' +
+        'nsagem Mensagem Mensagem Mensagem'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object BtnNao: TSpeedButton
+      Left = 696
+      Top = 232
+      Width = 80
+      Height = 50
+      Anchors = [akRight, akBottom]
+      Caption = 'N'#227'o'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = BtnNaoClick
+    end
+    object BtnSim: TSpeedButton
+      Left = 610
+      Top = 232
+      Width = 80
+      Height = 50
+      Anchors = [akRight, akBottom]
+      Caption = 'Sim'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = BtnSimClick
+    end
+  end
+  inherited Footer: TPanel
+    Top = 0
+    Width = 850
+    Height = 350
+    ExplicitTop = 0
+    ExplicitWidth = 850
+    ExplicitHeight = 350
+  end
+end

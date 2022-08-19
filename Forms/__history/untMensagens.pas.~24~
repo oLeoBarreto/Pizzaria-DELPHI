@@ -1,0 +1,55 @@
+unit untMensagens;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBase, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Buttons;
+
+type
+
+  TTipo = (msgOk, msgErro, msgSimNao);
+
+  TFormMensagens = class(TFormBase)
+    LblTitulo: TLabel;
+    LblTexto: TLabel;
+    Bevel1: TBevel;
+    Btn1: TSpeedButton;
+    Btn2: TSpeedButton;
+  private
+    { Private declarations }
+    tipoMensagem: TTipo;
+  public
+    { Public declarations }
+    function Mensagem(Titulo, Texto: string; Tipo: TTipo): TModalResult;
+  end;
+
+var
+  FormMensagens: TFormMensagens;
+
+implementation
+
+{$R *.dfm}
+
+function TFormMensagens.Mensagem(Titulo, Texto: string;
+  Tipo: TTipo): TModalResult;
+begin
+  tipoMensagem := Tipo;
+  LblTitulo.Caption := Titulo;
+  LblTexto.Caption := Texto;
+
+  if (Tipo = msgOk) or (Tipo = msgErro) then
+  begin
+    Btn1.Visible := False;
+    Btn2.Caption := 'Ok!';
+  end
+  else
+  begin
+    Btn1.Visible := True;
+  end;
+
+  Mensagem := Self.ShowModal;
+end;
+
+end.

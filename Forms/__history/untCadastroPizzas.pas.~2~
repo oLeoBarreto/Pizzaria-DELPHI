@@ -1,0 +1,25 @@
+unit untCadastroPizzas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBaseCadastro, Data.DB,
+  System.Actions, Vcl.ActnList, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFormCadastroPizzas = class(TFormBaseCadastro)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCadastroPizzas: TFormCadastroPizzas;
+
+implementation
+
+{$R *.dfm}
+
+end.

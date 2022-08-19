@@ -1,0 +1,67 @@
+unit untPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBase, Vcl.ExtCtrls, Vcl.Buttons,
+  untMensagens, udmDados, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ComCtrls,
+  System.Actions, Vcl.ActnList, Vcl.Menus;
+
+type
+  TFormPrincipal = class(TFormBase)
+    BtnFechar: TButton;
+    BtnMinimizar: TButton;
+    ToolBar1: TToolBar;
+    BtnCadastros: TToolButton;
+    ToolButton2: TToolButton;
+    BtnPesquisas: TToolButton;
+    PopMenuCadastros: TPopupMenu;
+    BtnCadastro_Pizzas: TMenuItem;
+    PopMenuPesquisas: TPopupMenu;
+    BtnPesquisas_Pizzas: TMenuItem;
+    procedure BtnFecharClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnMinimizarClick(Sender: TObject);
+    procedure BtnCadastro_PizzasClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPrincipal: TFormPrincipal;
+
+implementation
+
+uses
+  untCadastroPizzas;
+
+{$R *.dfm}
+
+procedure TFormPrincipal.BtnCadastro_PizzasClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormCadastroPizzas, FormCadastroPizzas);
+  FormCadastroPizzas.Show;
+end;
+
+procedure TFormPrincipal.BtnFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFormPrincipal.BtnMinimizarClick(Sender: TObject);
+begin
+  Self.WindowState := wsMinimized;
+end;
+
+procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if FormMensagens.mensagem('Tem certeza que deseja fechar a aplicação?', '',
+    msgSimNao) = mrNo then
+    Abort;
+end;
+
+end.

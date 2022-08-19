@@ -1,0 +1,12 @@
+inherited FormBasePesquisa1: TFormBasePesquisa1
+  Caption = 'FormBasePesquisa1'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    inherited Label1: TLabel
+      Width = 78
+      Caption = 'Pizzas'
+      ExplicitWidth = 78
+    end
+  end
+end

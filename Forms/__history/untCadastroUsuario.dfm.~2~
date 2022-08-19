@@ -1,0 +1,13 @@
+inherited FormBaseCadastro1: TFormBaseCadastro1
+  Caption = 'FormBaseCadastro1'
+  ExplicitWidth = 779
+  ExplicitHeight = 541
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    ExplicitTop = 0
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QueryUsuarios
+  end
+end

@@ -1,0 +1,78 @@
+unit untMensagens;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBase, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Buttons;
+
+type
+
+  TTipo = (msgOk, msgErro, msgSimNao);
+
+  TFormMensagens = class(TFormBase)
+    LblTitulo: TLabel;
+    LblTexto: TLabel;
+    Bevel1: TBevel;
+    Btn1: TSpeedButton;
+    Btn2: TSpeedButton;
+    procedure FormShow(Sender: TObject);
+    procedure Btn2Click(Sender: TObject);
+    procedure Btn1Click(Sender: TObject);
+  private
+    { Private declarations }
+    tipoMensagem: TTipo;
+  public
+    { Public declarations }
+    function Mensagem(Titulo, Texto: string; Tipo: TTipo): TModalResult;
+  end;
+
+var
+  FormMensagens: TFormMensagens;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormMensagens.Btn1Click(Sender: TObject);
+begin
+  ModalResult := mrYes;
+end;
+
+procedure TFormMensagens.Btn2Click(Sender: TObject);
+begin
+  if tipoMensagem = msgOk then
+    Close
+  else
+    ModalResult := mrNo;
+end;
+
+procedure TFormMensagens.FormShow(Sender: TObject);
+begin
+  Content.Left(Self.Width - Content.Width) div 2;
+  Content.Top := (Self.Height - Content.Height) div 2;
+end;
+
+function TFormMensagens.Mensagem(Titulo, Texto: string; Tipo: TTipo)
+  : TModalResult;
+begin
+  tipoMensagem := Tipo;
+  LblTitulo.Caption := Titulo;
+  LblTexto.Caption := Texto;
+
+  if (Tipo = msgOk) or (Tipo = msgErro) then
+  begin
+    Btn1.Visible := False;
+    Btn2.Caption := 'Ok!';
+  end
+  else
+  begin
+    Btn1.Visible := True;
+  end;
+
+  Mensagem := Self.ShowModal;
+end;
+
+end.

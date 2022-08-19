@@ -1,0 +1,57 @@
+object FormBase: TFormBase
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'Principal'
+  ClientHeight = 502
+  ClientWidth = 763
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  ShowHint = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Header: TPanel
+    Left = 0
+    Top = 0
+    Width = 763
+    Height = 70
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 5755391
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitWidth = 747
+  end
+  object Content: TPanel
+    Left = 0
+    Top = 472
+    Width = 763
+    Height = 30
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = 5755391
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitTop = 439
+    ExplicitWidth = 747
+  end
+  object Footer: TPanel
+    Left = 0
+    Top = 70
+    Width = 763
+    Height = 402
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 2
+    ExplicitTop = 64
+    ExplicitWidth = 747
+    ExplicitHeight = 363
+  end
+end

@@ -1,0 +1,30 @@
+inherited FormMensagens: TFormMensagens
+  Caption = 'FormMensagens'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    Height = 492
+    Align = alClient
+    ExplicitWidth = 763
+  end
+  inherited Content: TPanel
+    Top = 492
+    Height = 10
+    Visible = False
+    ExplicitTop = 472
+    ExplicitWidth = 763
+    ExplicitHeight = 10
+  end
+  inherited Footer: TPanel
+    Left = 56
+    Top = 71
+    Width = 650
+    Height = 350
+    Align = alNone
+    Color = clBlack
+    ExplicitLeft = 56
+    ExplicitTop = 71
+    ExplicitWidth = 650
+    ExplicitHeight = 350
+  end
+end

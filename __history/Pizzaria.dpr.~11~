@@ -1,0 +1,26 @@
+program Pizzaria;
+
+uses
+  Vcl.Forms,
+  frmBase in 'Forms\frmBase.pas' {FormBase},
+  untPrincipal in 'Forms\untPrincipal.pas' {FormPrincipal},
+  untAbertura in 'Forms\untAbertura.pas' {FormAbertura},
+  untMensagens in 'Forms\untMensagens.pas' {FormMensagens},
+  untLogin in 'Forms\untLogin.pas' {FormLogin},
+  udmDados in 'Forms\udmDados.pas' {dmDados: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Pizzaria';
+  Application.CreateForm(TdmDados, dmDados);
+  Application.CreateForm(TFormPrincipal, FormPrincipal);
+  Application.CreateForm(TFormMensagens, FormMensagens);
+  Application.CreateForm(TFormAbertura, FormAbertura);
+  Application.CreateForm(TFormLogin, FormLogin);
+  FormAbertura.ShowModal;
+  FormLogin.ShowModal;
+  Application.Run;
+end.

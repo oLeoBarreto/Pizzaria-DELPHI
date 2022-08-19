@@ -1,0 +1,110 @@
+unit frmBaseCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBase, Vcl.ExtCtrls, udmDados,
+  untMensagens, System.Actions, Vcl.ActnList, Data.DB;
+
+type
+  TFormBaseCadastro = class(TFormBase)
+    ActionList: TActionList;
+    ActVoltar: TAction;
+    ActSalvar: TAction;
+    ActCancelar: TAction;
+    ActExcluir: TAction;
+    dts: TDataSource;
+    procedure ActVoltarExecute(Sender: TObject);
+    procedure ActSalvarExecute(Sender: TObject);
+    procedure ActCancelarExecute(Sender: TObject);
+    procedure ActExcluirExecute(Sender: TObject);
+    procedure dtsDataChange(Sender: TObject; Field: TField);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+    editou: boolean;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormBaseCadastro: TFormBaseCadastro;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormBaseCadastro.ActCancelarExecute(Sender: TObject);
+begin
+  dts.DataSet.Cancel;
+  Close;
+end;
+
+procedure TFormBaseCadastro.ActExcluirExecute(Sender: TObject);
+begin
+  if FormMensagens.Mensagem('Confirmar a exclusão?', 'A exclusão do registro não poderá ser desfeita', msgSimNao) = mrYes then
+  begin  
+    dts.DataSet.Cancel;
+    dts.DataSet.Delete;
+    FormMensagens.Mensagem('Exclusão concluida com sucesso!', '', msgOk);
+    Close;
+  end;
+end;
+
+procedure TFormBaseCadastro.ActSalvarExecute(Sender: TObject);
+var mensagem: string;
+    i: integer;
+begin
+  try
+    for i := 0 to dts.DataSet.FieldCount-1 do
+      if (dts.DataSet.Fields[i].Required and (dts.DataSet.Fields[i].IsNull or (Trim(dts.DataSet.Fields[i].AsString) = ''))) then
+        raise Exception.Create('Campo obrigatório, informe o valor do(a): ' + dts.DataSet.Fields[i].DisplayLabel);
+
+    if (dts.DataSet.State = dsInsert) then
+      mensagem := 'Cadastro realizado com sucesso'
+    else
+      mensagem := 'Alterações realizadas com sucesso!';
+    dts.DataSet.Post;
+    FormMensagens.Mensagem(mensagem, '', msgOk);
+    Close;
+  except
+    on e: exception do
+      FormMensagens.Mensagem('Problema ao Salvar', e.Message, msgErro);
+  end;
+end;
+
+procedure TFormBaseCadastro.ActVoltarExecute(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFormBaseCadastro.dtsDataChange(Sender: TObject; Field: TField);
+begin
+  editou := True;
+end;
+
+procedure TFormBaseCadastro.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+var retorno: integer;
+begin
+  retorno := 0;
+  if (dts.DataSet.State = dsInsert) and editou then
+  begin
+    retorno := FormMensagens.Mensagem('Sair sem Salvar?', 
+      'Existem dados em inclusão! Cancelar o cadastro?', msgSimNao);
+  end 
+  else if (dts.DataSet.State = dsEdit) and editou then
+  begin
+    retorno := FormMensagens.Mensagem('Sair sem Salvar?', 
+      'Existem dados em alteração! Cancelar o cadastro?', msgSimNao);
+  end;
+
+  if (retorno = mrNo) then
+    Abort;
+  
+  if (dts.DataSet.State in [dsInsert, dsEdit]) then
+    dts.DataSet.Cancel;
+end;
+
+end.

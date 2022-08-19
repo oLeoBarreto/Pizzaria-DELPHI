@@ -1,0 +1,144 @@
+inherited FormLogin: TFormLogin
+  AlphaBlend = True
+  AlphaBlendValue = 240
+  Caption = 'FormLogin'
+  Position = poDefault
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    Height = 492
+    Align = alClient
+    ExplicitHeight = 492
+  end
+  inherited Footer: TPanel
+    Top = 492
+    Height = 10
+    ExplicitTop = 492
+    ExplicitHeight = 10
+  end
+  inherited Content: TPanel
+    Left = 168
+    Top = 46
+    Width = 400
+    Height = 371
+    Align = alNone
+    Anchors = []
+    Color = clBlack
+    ExplicitLeft = 168
+    ExplicitTop = 46
+    ExplicitWidth = 400
+    ExplicitHeight = 371
+    object LblTitulo: TLabel
+      Left = 40
+      Top = 48
+      Width = 72
+      Height = 37
+      Caption = 'Login'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -27
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Bevel1: TBevel
+      Left = 40
+      Top = 91
+      Width = 329
+      Height = 14
+      Shape = bsTopLine
+    end
+    object Label2: TLabel
+      Left = 48
+      Top = 109
+      Width = 135
+      Height = 21
+      Caption = 'Nome de usu'#225'rio:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 48
+      Top = 187
+      Width = 51
+      Height = 21
+      Caption = 'Senha:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object BtnEntrar: TSpeedButton
+      Left = 40
+      Top = 287
+      Width = 150
+      Height = 45
+      Caption = 'Entrar'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = BtnEntrarClick
+    end
+    object BtnCancelar: TSpeedButton
+      Left = 219
+      Top = 287
+      Width = 150
+      Height = 45
+      Caption = 'Cancelar'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = BtnCancelarClick
+    end
+    object EdtNomeUsuario: TEdit
+      Left = 40
+      Top = 136
+      Width = 329
+      Height = 33
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object EdtSenha: TEdit
+      Left = 40
+      Top = 214
+      Width = 329
+      Height = 33
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+end

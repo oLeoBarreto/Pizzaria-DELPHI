@@ -1,6 +1,6 @@
 object dmDados: TdmDados
   OldCreateOrder = False
-  Height = 312
+  Height = 271
   Width = 583
   object FDConnection: TFDConnection
     Params.Strings = (
@@ -17,7 +17,7 @@ object dmDados: TdmDados
     VendorLib = 
       'C:\Users\leonardo.barreto\Desktop\Aulas\ProjetoPizzaria\libmysql' +
       '.dll'
-    Left = 273
+    Left = 265
     Top = 16
   end
   object FDGUIxWaitCursor: TFDGUIxWaitCursor
@@ -1477,7 +1477,7 @@ object dmDados: TdmDados
     ColorDepth = cd32Bit
     Height = 60
     Width = 60
-    Left = 160
+    Left = 144
     Top = 208
     Bitmap = {
       494C01010A00180004003C003C00FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
@@ -7071,12 +7071,13 @@ object dmDados: TdmDados
     Connection = FDConnection
     SQL.Strings = (
       'SELECT * FROM Pizzas')
-    Left = 133
+    Left = 126
     Top = 88
     object QryPizzasId: TFDAutoIncField
       FieldName = 'Id'
       Origin = 'Id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object QryPizzasNome: TStringField
       FieldName = 'Nome'
@@ -7096,27 +7097,141 @@ object dmDados: TdmDados
       Origin = 'Preco'
     end
   end
-  object QueryUsuarios: TFDQuery
+  object QryUsuarios: TFDQuery
     Connection = FDConnection
     SQL.Strings = (
       'SELECT * FROM Usuario')
-    Left = 208
+    Left = 190
     Top = 88
-    object QueryUsuariosId: TFDAutoIncField
+    object QryUsuariosId: TFDAutoIncField
       FieldName = 'Id'
       Origin = 'Id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
-    object QueryUsuariosNomeUsuario: TStringField
+    object QryUsuariosNomeUsuario: TStringField
       FieldName = 'NomeUsuario'
       Origin = 'NomeUsuario'
       Required = True
       Size = 255
     end
-    object QueryUsuariosSenha: TStringField
+    object QryUsuariosSenha: TStringField
       FieldName = 'Senha'
       Origin = 'Senha'
       Required = True
+    end
+  end
+  object QryClientes: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM Clientes')
+    Left = 257
+    Top = 88
+    object QryClientesId: TFDAutoIncField
+      FieldName = 'Id'
+      Origin = 'Id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object QryClientesNome: TStringField
+      FieldName = 'Nome'
+      Origin = 'Nome'
+      Required = True
+      Size = 255
+    end
+    object QryClientesNascimento: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'Nascimento'
+      Origin = 'Nascimento'
+    end
+    object QryClientesRua: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Rua'
+      Origin = 'Rua'
+      Size = 250
+    end
+    object QryClientesBairro: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Bairro'
+      Origin = 'Bairro'
+      Size = 250
+    end
+    object QryClientesNumero: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'Numero'
+      Origin = 'Numero'
+    end
+    object QryClientesCidade: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Cidade'
+      Origin = 'Cidade'
+      Size = 250
+    end
+    object QryClientesUF: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'UF'
+      Origin = 'UF'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object QryPedidos: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT Pd.*,'
+      '       Pz.Nome AS NomePizza,'
+      '       Pz.Ingredientes,'
+      '       C.Nome AS NomeCliente'
+      '  FROM Pedidos Pd'
+      'INNER JOIN Pizzas Pz ON Pd.PizzaID = Pz.id'
+      'INNER JOIN Clientes C ON Pd.ClienteID = C.id'
+      'ORDER BY Id')
+    Left = 322
+    Top = 88
+    object QryPedidosId: TFDAutoIncField
+      FieldName = 'Id'
+      Origin = 'Id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object QryPedidosPizzaID: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'PizzaID'
+      Origin = 'PizzaID'
+    end
+    object QryPedidosClienteID: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'ClienteID'
+      Origin = 'ClienteID'
+    end
+    object QryPedidosPreco: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'Preco'
+      Origin = 'Preco'
+    end
+    object QryPedidosNomePizza: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'NomePizza'
+      Origin = 'Nome'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 250
+    end
+    object QryPedidosIngredientes: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Ingredientes'
+      Origin = 'Ingredientes'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 250
+    end
+    object QryPedidosNomeCliente: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'NomeCliente'
+      Origin = 'Nome'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 255
     end
   end
 end

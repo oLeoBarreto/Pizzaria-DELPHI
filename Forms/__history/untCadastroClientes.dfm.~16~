@@ -1,0 +1,15 @@
+inherited FormCadastroClientes: TFormCadastroClientes
+  Caption = 'FormCadastroClientes'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    inherited Label1: TLabel
+      Width = 102
+      Caption = 'Clientes'
+      ExplicitWidth = 102
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryClientes
+  end
+end

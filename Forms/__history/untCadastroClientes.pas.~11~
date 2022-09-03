@@ -1,0 +1,30 @@
+unit untCadastroClientes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, udmDados, frmBaseCadastro, Data.DB,
+  System.Actions, Vcl.ActnList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Mask,
+  Vcl.DBCtrls;
+
+type
+  TFormCadastroClientes = class(TFormBaseCadastro)
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCadastroClientes: TFormCadastroClientes;
+
+implementation
+
+{$R *.dfm}
+
+end.

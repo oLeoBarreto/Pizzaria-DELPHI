@@ -1,0 +1,66 @@
+inherited FormCadastroPedidos: TFormCadastroPedidos
+  Caption = 'FormCadastroPedidos'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    inherited Label1: TLabel
+      Width = 102
+      Caption = 'Pedidos'
+      ExplicitWidth = 102
+    end
+  end
+  inherited Content: TPanel
+    object Label2: TLabel
+      Left = 24
+      Top = 16
+      Width = 55
+      Height = 13
+      Caption = 'NomePizza'
+    end
+    object Label3: TLabel
+      Left = 24
+      Top = 72
+      Width = 66
+      Height = 13
+      Caption = 'NomeCliente'
+    end
+    object Label4: TLabel
+      Left = 24
+      Top = 128
+      Width = 64
+      Height = 13
+      Caption = 'PrecoPedido'
+      FocusControl = DBEdit1
+    end
+    object CBXNomePizza: TDBComboBox
+      Left = 24
+      Top = 35
+      Width = 721
+      Height = 21
+      DataField = 'NomePizza'
+      DataSource = dts
+      TabOrder = 0
+    end
+    object DBComboBox2: TDBComboBox
+      Left = 24
+      Top = 91
+      Width = 721
+      Height = 21
+      DataField = 'NomeCliente'
+      DataSource = dts
+      TabOrder = 1
+    end
+    object DBEdit1: TDBEdit
+      Left = 24
+      Top = 144
+      Width = 134
+      Height = 21
+      DataField = 'PrecoPedido'
+      DataSource = dts
+      TabOrder = 2
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryPedidos
+  end
+end

@@ -36,6 +36,7 @@ inherited FormBaseCadastro: TFormBaseCadastro
       Width = 70
       Height = 73
       Action = ActExcluir
+      Anchors = [akTop, akRight]
       Images = dmDados.ImgList60px
       Style = bsCommandLink
       TabOrder = 1
@@ -46,6 +47,7 @@ inherited FormBaseCadastro: TFormBaseCadastro
       Width = 70
       Height = 73
       Action = ActCancelar
+      Anchors = [akTop, akRight]
       Images = dmDados.ImgList60px
       Style = bsCommandLink
       TabOrder = 2
@@ -56,6 +58,7 @@ inherited FormBaseCadastro: TFormBaseCadastro
       Width = 70
       Height = 73
       Action = ActSalvar
+      Anchors = [akTop, akRight]
       Images = dmDados.ImgList60px
       Style = bsCommandLink
       TabOrder = 3

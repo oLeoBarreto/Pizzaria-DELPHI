@@ -1,0 +1,50 @@
+unit untPesquisaPedidos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBasePesquisa, Data.DB,
+  System.Actions, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, udmDados, Vcl.OleServer, CRAXDRT_TLB, frxClass, frxDBSet;
+
+type
+  TFormPesquisaPedidos = class(TFormBasePesquisa)
+    Report: TfrxReport;
+    ReportDataset: TfrxDBDataset;
+    procedure ActImprimirExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  protected
+    procedure AbreCadastro(); override;
+  end;
+
+var
+  FormPesquisaPedidos: TFormPesquisaPedidos;
+
+implementation
+
+uses
+  untCadastroPedidos;
+
+{$R *.dfm}
+{ TFormPesquisaPedidos }
+
+procedure TFormPesquisaPedidos.AbreCadastro;
+begin
+  Application.CreateForm(TFormCadastroPedidos, FormCadastroPedidos);
+  FormCadastroPedidos.Show;
+end;
+
+procedure TFormPesquisaPedidos.ActImprimirExecute(Sender: TObject);
+var vPath: string;
+begin
+  vPath := 'C:\Users\leonardo.barreto\Desktop\Aulas\ProjetoPizzaria\Reports\RelatorioPedidos.fr3';
+  Report.loadFromFile(vPath);
+  Report.ShowReport();
+end;
+
+end.

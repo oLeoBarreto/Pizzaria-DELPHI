@@ -1,0 +1,41 @@
+unit untPesquisaPedidos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBasePesquisa, Data.DB,
+  System.Actions, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, udmDados, Vcl.OleServer, CRAXDRT_TLB, frxClass, frxDBSet;
+
+type
+  TFormPesquisaPedidos = class(TFormBasePesquisa)
+    Report: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  protected
+    procedure AbreCadastro(); override;
+  end;
+
+var
+  FormPesquisaPedidos: TFormPesquisaPedidos;
+
+implementation
+
+uses
+  untCadastroPedidos;
+
+{$R *.dfm}
+{ TFormPesquisaPedidos }
+
+procedure TFormPesquisaPedidos.AbreCadastro;
+begin
+  Application.CreateForm(TFormCadastroPedidos, FormCadastroPedidos);
+  FormCadastroPedidos.Show;
+end;
+
+end.

@@ -146,6 +146,22 @@
             <Form>FormCadastroUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\untPesquisaCliente.pas">
+            <Form>FormPesquisaClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\untCadastroClientes.pas">
+            <Form>FormCadastroClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\untPesquisaPedidos.pas">
+            <Form>FormPesquisaPedidos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\untCadastroPedidos.pas">
+            <Form>FormCadastroPedidos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

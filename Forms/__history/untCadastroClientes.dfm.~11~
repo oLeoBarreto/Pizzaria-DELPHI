@@ -1,0 +1,128 @@
+inherited FormCadastroClientes: TFormCadastroClientes
+  Caption = 'FormCadastroClientes'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    inherited Label1: TLabel
+      Width = 102
+      Caption = 'Clientes'
+      ExplicitWidth = 102
+    end
+  end
+  inherited Content: TPanel
+    object Label2: TLabel
+      Left = 24
+      Top = 16
+      Width = 30
+      Height = 13
+      Caption = 'Nome'
+      FocusControl = DBEdit1
+    end
+    object Label3: TLabel
+      Left = 24
+      Top = 64
+      Width = 60
+      Height = 13
+      Caption = 'Nascimento'
+      FocusControl = DBEdit2
+    end
+    object Label4: TLabel
+      Left = 176
+      Top = 61
+      Width = 14
+      Height = 13
+      Caption = 'UF'
+      FocusControl = DBEdit3
+    end
+    object Label5: TLabel
+      Left = 220
+      Top = 64
+      Width = 36
+      Height = 13
+      Caption = 'Cidade'
+      FocusControl = DBEdit4
+    end
+    object Label6: TLabel
+      Left = 24
+      Top = 112
+      Width = 30
+      Height = 13
+      Caption = 'Bairro'
+      FocusControl = DBEdit5
+    end
+    object Label7: TLabel
+      Left = 24
+      Top = 160
+      Width = 22
+      Height = 13
+      Caption = 'RUA'
+      FocusControl = DBEdit6
+    end
+    object DBEdit1: TDBEdit
+      Left = 24
+      Top = 32
+      Width = 708
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      DataField = 'Nome'
+      DataSource = dts
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 24
+      Top = 80
+      Width = 134
+      Height = 21
+      DataField = 'Nascimento'
+      DataSource = dts
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 176
+      Top = 80
+      Width = 30
+      Height = 21
+      DataField = 'UF'
+      DataSource = dts1
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 220
+      Top = 80
+      Width = 512
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      DataField = 'Cidade'
+      DataSource = dts1
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 24
+      Top = 128
+      Width = 708
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      DataField = 'Bairro'
+      DataSource = dts1
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 24
+      Top = 176
+      Width = 708
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      DataField = 'RUA'
+      DataSource = dts1
+      TabOrder = 5
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryClientes
+  end
+  object dts1: TDataSource
+    DataSet = dmDados.QryEndereco
+    Left = 96
+    Top = 352
+  end
+end

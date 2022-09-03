@@ -1,0 +1,23 @@
+inherited FormBasePesquisa1: TFormBasePesquisa1
+  Caption = 'FormBasePesquisa1'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Content: TPanel
+    inherited DBGrid1: TDBGrid
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Nome'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Telefone'
+          Visible = True
+        end>
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryClientes
+  end
+end

@@ -1,0 +1,60 @@
+unit untPesquisaPizzas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmBasePesquisa, Data.DB,
+  System.Actions, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, udmDados, untCadastroPizzas;
+
+type
+  TFormPesquisaPizzas = class(TFormBasePesquisa)
+    EdtNome: TEdit;
+    EdtPreco: TEdit;
+    procedure EdtNomeChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  protected
+    procedure AbreCadastro(); override;
+    procedure Pesquisar(sql: string); override;
+  end;
+
+var
+  FormPesquisaPizzas: TFormPesquisaPizzas;
+
+implementation
+
+{$R *.dfm}
+
+{ TFormPesquisaPizzas }
+
+procedure TFormPesquisaPizzas.AbreCadastro;
+begin
+  Application.CreateForm(TFormCadastroPizzas, FormCadastroPizzas);
+  FormCadastroPizzas.Show;
+end;
+
+procedure TFormPesquisaPizzas.EdtNomeChange(Sender: TObject);
+begin
+  Pesquisar('');
+end;
+
+procedure TFormPesquisaPizzas.Pesquisar(sql: string);
+begin
+  sql := sqlInicial;
+  if length(EdtNome.Text) >= 3 then
+    sql := sql + ' where Nome like ' + QuotedStr('%' + EdtNome.Text + '%');
+
+  if length(EdtPreco.Text) >= 3 then
+    if (sql = sqlInicial) then
+      sql := sql + ' where Preco like ' + QuotedStr('%' + EdtPreco.Text + '%')
+    else
+      sql := sql + ' and Preco like ' + QuotedStr('%' + EdtPreco.Text + '%');
+
+  inherited;
+end;
+
+end.

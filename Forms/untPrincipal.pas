@@ -14,15 +14,12 @@ type
     BtnFechar: TButton;
     BtnMinimizar: TButton;
     ToolBar1: TToolBar;
-    BtnCadastros: TToolButton;
-    ToolButton2: TToolButton;
     BtnPesquisas: TToolButton;
-    PopMenuCadastros: TPopupMenu;
-    BtnCadastro_Pizzas: TMenuItem;
     PopMenuPesquisas: TPopupMenu;
     BtnPesquisas_Pizzas: TMenuItem;
-    BtnCadastros_Usuarios: TMenuItem;
     BtnPesquisa_Usuarios: TMenuItem;
+    Clientes: TMenuItem;
+    Pedidos: TMenuItem;
     procedure BtnFecharClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BtnMinimizarClick(Sender: TObject);
@@ -30,6 +27,8 @@ type
     procedure BtnPesquisas_PizzasClick(Sender: TObject);
     procedure BtnCadastros_UsuariosClick(Sender: TObject);
     procedure BtnPesquisa_UsuariosClick(Sender: TObject);
+    procedure ClientesClick(Sender: TObject);
+    procedure PedidosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,7 +42,7 @@ implementation
 
 uses
   untCadastroPizzas, untPesquisaPizzas, untCadastroUsuario,
-  untPesquisaUsuarios;
+  untPesquisaUsuarios, untPesquisaCliente, untPesquisaPedidos;
 
 {$R *.dfm}
 
@@ -75,11 +74,23 @@ begin
   FormPesquisaUsuario.Show;
 end;
 
+procedure TFormPrincipal.ClientesClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormPesquisaClientes, FormPesquisaClientes);
+  FormPesquisaClientes.Show;
+end;
+
 procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   if FormMensagens.mensagem('Tem certeza que deseja fechar a aplicação?', '',
     msgSimNao) = mrNo then
     Abort;
+end;
+
+procedure TFormPrincipal.PedidosClick(Sender: TObject);
+begin
+   Application.CreateForm(TFormPesquisaPedidos, FormPesquisaPedidos);
+  FormPesquisaPedidos.Show;
 end;
 
 procedure TFormPrincipal.BtnCadastros_UsuariosClick(Sender: TObject);

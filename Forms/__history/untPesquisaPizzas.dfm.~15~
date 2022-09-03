@@ -1,0 +1,52 @@
+inherited FormPesquisaPizzas: TFormPesquisaPizzas
+  Caption = 'FormPesquisaPizzas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Header: TPanel
+    inherited Label1: TLabel
+      Width = 78
+      Caption = 'Pizzas'
+      ExplicitWidth = 78
+    end
+  end
+  inherited Content: TPanel
+    inherited PnlPesquisar: TPanel
+      object EdtNome: TEdit
+        Left = 8
+        Top = 10
+        Width = 220
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        TextHint = 'Pesquisar por Nome...'
+        OnExit = EdtNomeExit
+      end
+    end
+    inherited DBGrid1: TDBGrid
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Nome'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Ingredientes'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Preco'
+          Visible = True
+        end>
+    end
+  end
+  inherited dts: TDataSource
+    DataSet = dmDados.QryPizzas
+  end
+end

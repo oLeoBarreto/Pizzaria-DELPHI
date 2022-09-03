@@ -13,7 +13,11 @@ uses
   untPesquisaPizzas in 'Forms\untPesquisaPizzas.pas' {FormPesquisaPizzas},
   untCadastroPizzas in 'Forms\untCadastroPizzas.pas' {FormCadastroPizzas},
   untPesquisaUsuarios in 'Forms\untPesquisaUsuarios.pas' {FormPesquisaUsuario},
-  untCadastroUsuario in 'Forms\untCadastroUsuario.pas' {FormCadastroUsuario};
+  untCadastroUsuario in 'Forms\untCadastroUsuario.pas' {FormCadastroUsuario},
+  untPesquisaCliente in 'Forms\untPesquisaCliente.pas' {FormPesquisaClientes},
+  untCadastroClientes in 'Forms\untCadastroClientes.pas' {FormCadastroClientes},
+  untPesquisaPedidos in 'Forms\untPesquisaPedidos.pas' {FormPesquisaPedidos},
+  untCadastroPedidos in 'Forms\untCadastroPedidos.pas' {FormCadastroPedidos};
 
 {$R *.res}
 

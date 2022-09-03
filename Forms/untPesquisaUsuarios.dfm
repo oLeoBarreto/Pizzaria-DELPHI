@@ -18,11 +18,12 @@ inherited FormPesquisaUsuario: TFormPesquisaUsuario
         item
           Expanded = False
           FieldName = 'Senha'
+          Width = 64
           Visible = True
         end>
     end
   end
   inherited dts: TDataSource
-    DataSet = dmDados.QueryUsuarios
+    DataSet = dmDados.QryUsuarios
   end
 end
